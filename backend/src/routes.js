@@ -17,4 +17,6 @@ routes.get('/tales', TaleController.getTales);
 
 routes.post('/tellHistory', TaleController.store);
 
+routes.get('/tale?*', TaleController.getTale);
+
 module.exports = routes;

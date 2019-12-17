@@ -2,13 +2,14 @@
 
 # dependencies
 */node_modules
+backend/src/server.js
 
 .pnp
 .pnp.js
 
 # testing
 coverage
-
+gi
 # production
 build
 

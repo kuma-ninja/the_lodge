@@ -1,7 +1,10 @@
 import React from 'react';
+import Particles from '../components/Particles';
+import Blaze from '../components/Sound';
 
 export default function Home(){
-    return(
-        <h1>Main Page</h1>
-    );
+    return([
+        <Particles/>,
+        <Blaze/>
+    ]);
 }
