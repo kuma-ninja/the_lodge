@@ -8,7 +8,6 @@ module.exports = {
 			title, description,
 			image1, image2
 		});
-
 		return res.json({ "tale": tale});
 	},
 	
@@ -21,6 +20,7 @@ module.exports = {
 	
 	async getTale(req, res){
 		const {id} = req.query;
+		// const tale = await Tale.findByIdAndDelete({_id:id},(err, tale)=>{
 		const tale = await Tale.find({_id:id},(err, tale)=>{
 			return tale;
 		});

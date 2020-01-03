@@ -9,13 +9,13 @@ const TaleSchema = new Schema({
         type: String,
         required: true,
     },
-    image1: {
+    image1: { 
         type: String,
         required: true,
     },
-    image2: {
+    image2: { 
         type: String,
-        required: true,
+        required: true, 
     }
 }, {
     timestamp: true,
