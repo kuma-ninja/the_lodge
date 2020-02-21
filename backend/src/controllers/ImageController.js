@@ -24,16 +24,20 @@ module.exports = {
 	async getImage(req, res){
 		const image_name = req.originalUrl.split('/')[req.originalUrl.split('/').length - 1];
 		// const tale = await Image.findByIdAndDelete({_id:id},(err, tale)=>{
-		const image = await Image.find({image_name:image_name},(err, image)=>{
-			return image;
-		}).then((image)=>{
-			const data = image[0].image_data.replace(/^data:image\/(png|jpeg|jpg);base64,/, '');
-			const img = Buffer.from(data, 'base64');
-			res.writeHead(200, {
-				'Content-Type': 'image/png',
-				'Content-Length': img.length
+		try {
+			const image = await Image.find({image_name:image_name},(err, image)=>{
+				return image;
+			}).then((image)=>{
+				const data = image[0].image_data.replace(/^data:image\/(png|jpeg|jpg);base64,/, '');
+				const img = Buffer.from(data, 'base64');
+				res.writeHead(200, {
+					'Content-Type': 'image/png',
+					'Content-Length': img.length
+				});
+				res.end(img);
 			});
-			res.end(img);
-		});
+		} catch {
+			// console.log(err);
+		}
 	},
 }
