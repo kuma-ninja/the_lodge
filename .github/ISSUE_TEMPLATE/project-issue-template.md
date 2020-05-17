@@ -11,7 +11,8 @@ assignees: ''
 - 
 ### Detail
 - 
+### DoD (definition of done)
 ### Related issues
-| issue # |
-| --- |
-| #0 |
+| # | description |
+| --- | --- |
+| #0 | lorem ipsum |
