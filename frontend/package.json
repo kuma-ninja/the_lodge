@@ -34,5 +34,21 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "ms-app-devportal1111-bs": {
+    "name": "ms-app-devportal1111-bs",
+    "description": "teste",
+    "environments": [
+      "qa",
+      "stg",
+      "prd"
+    ],
+    "actions": true,
+    "pagerDuty": true,
+    "teams_roles": "Write + View Dependabot Alerts",
+    "squad_name": "product-platform",
+    "custom_actions_variables": {
+      "DIVISION": "yape3"
+    }
   }
 }
