@@ -55,4 +55,21 @@ repositories_product_platform = {
       DIVISION = "gangnam style",
     }
   },
+
+  ms-app-devportal-bff2 = {
+    name                = "ms-app-devportal-bff2"
+    description         = "teste-desc"
+    environments        = ["qa", "stg", "prd"]
+    actions             = true
+    template            = "gangnam style"
+    build_flows_enabled = true
+    teams_roles = {
+      product_platform = "Write + View Dependabot Alerts"
+    }
+    pagerduty  = true
+    squad_name = "product-platform"
+    custom_actions_variables = {
+      DIVISION = "yape3",
+    }
+  },
 }
