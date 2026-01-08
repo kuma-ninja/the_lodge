@@ -14,4 +14,21 @@ repositories = {
       DIVISION = "gangnam style",
     }
   },
+
+  ms-test-template-7 = {
+    name                = "ms-test-template-7"
+    description         = "Test template"
+    environments        = ["qa", "stg", "prd"]
+    actions             = true
+    template            = "ms-nest-template"
+    build_flows_enabled = true
+    teams_roles = {
+      product_platform = "Write + View Dependabot Alerts"
+    }
+    pagerduty  = true
+    squad_name = "product_platform"
+    custom_actions_variables = {
+      DIVISION = "yape3",
+    }
+  },
 }
