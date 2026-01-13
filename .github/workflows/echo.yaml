@@ -10,5 +10,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Sleep for 30 seconds
+        run: sleep 30
+        shell: bash
       - name: Echo Message
         run: echo "${{ inputs.message }}"
