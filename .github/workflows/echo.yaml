@@ -1,0 +1,14 @@
+on:
+  workflow_dispatch:
+    inputs:
+      message:
+        description: "Message to echo"
+        required: true
+
+jobs:
+  echo:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Echo Message
+        run: echo "${{ inputs.message }}"
