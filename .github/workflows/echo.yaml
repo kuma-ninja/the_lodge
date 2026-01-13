@@ -4,6 +4,7 @@ on:
       message:
         description: "Message to echo"
         required: true
+  pull_request:
 
 jobs:
   echo:
