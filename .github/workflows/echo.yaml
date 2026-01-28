@@ -4,7 +4,12 @@ on:
       message:
         description: "Message to echo"
         required: true
+      execution_id:
+        description: "Reference id"
+        required: true
   pull_request:
+
+run-name: Hello ${{ inputs.execution_id }}
 
 jobs:
   echo:
