@@ -638,4 +638,20 @@ repositories = {
       DIVISION = "yape3",
     }
   },
+
+  ms-test-redis-5-1 = {
+    name                = "ms-test-redis-5-1"
+    description         = "test"
+    environments        = ["qa", "stg", "prd"]
+    actions             = true
+    build_flows_enabled = true
+    teams_roles = {
+      product_platform = "Write + View Dependabot Alerts"
+    }
+    pagerduty  = true
+    squad_name = "product_platform"
+    custom_actions_variables = {
+      DIVISION = "yape3",
+    }
+  },
 }
