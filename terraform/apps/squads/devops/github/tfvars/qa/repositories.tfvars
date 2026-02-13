@@ -1070,4 +1070,20 @@ repositories = {
       DIVISION = "yape3",
     }
   },
+
+  ms-test-kafka-13-2 = {
+    name                = "ms-test-kafka-13-2"
+    description         = "Test"
+    environments        = ["qa", "stg", "prd"]
+    actions             = true
+    build_flows_enabled = true
+    teams_roles = {
+      delivery_commerce_club = "Write + View Dependabot Alerts"
+    }
+    pagerduty  = true
+    squad_name = "delivery_commerce_club"
+    custom_actions_variables = {
+      DIVISION = "yape3mp",
+    }
+  },
 }
