@@ -1,0 +1,71 @@
+name: TERRAGRUNT - Repository Creation (Backstage)
+
+on:
+  workflow_dispatch:
+    inputs:
+      repo_name:
+        description: 'Repository name to create'
+        required: true
+        type: string
+      environment:
+        description: 'Target environment (qa only - prd temporarily disabled)'
+        required: true
+        type: choice
+        options:
+          - qa
+      execution_id:
+        description: 'Backstage execution ID for tracking'
+        required: true
+        type: string
+
+run-name: Repository Creation - ${{ github.event.inputs.repo_name }} (${{ github.event.inputs.environment }}) - Execution ${{ github.event.inputs.execution_id }}
+
+jobs:
+  validate_inputs:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    outputs:
+      repo_name: ${{ steps.validate.outputs.repo_name }}
+      environment: ${{ steps.validate.outputs.environment }}
+      execution_id: ${{ steps.validate.outputs.execution_id }}
+
+    steps:
+      - name: Validate inputs
+        id: validate
+        run: |
+          REPO_NAME="${{ github.event.inputs.repo_name }}"
+          ENVIRONMENT="${{ github.event.inputs.environment }}"
+          EXECUTION_ID="${{ github.event.inputs.execution_id }}"
+
+          # Validate repo_name: required, kebab-case, lowercase letters/numbers/hyphens
+          if [ -z "$REPO_NAME" ]; then
+            echo "::error::repo_name is required"
+            exit 1
+          fi
+          if ! echo "$REPO_NAME" | grep -qE '^[a-z][a-z0-9-]*$'; then
+            echo "::error::repo_name must be kebab-case starting with a lowercase letter (e.g., my-service)"
+            exit 1
+          fi
+
+          # Validate environment: must be one of the allowed values
+          if [ "$ENVIRONMENT" != "qa" ]; then
+            echo "::error::environment must be 'qa'"
+            exit 1
+          fi
+
+          # Validate execution_id: required, non-empty
+          if [ -z "$EXECUTION_ID" ]; then
+            echo "::error::execution_id is required"
+            exit 1
+          fi
+
+          echo "repo_name=${REPO_NAME}" >> "$GITHUB_OUTPUT"
+          echo "environment=${ENVIRONMENT}" >> "$GITHUB_OUTPUT"
+          echo "execution_id=${EXECUTION_ID}" >> "$GITHUB_OUTPUT"
+
+          echo "### Validated Inputs" >> "$GITHUB_STEP_SUMMARY"
+          echo "| Input | Value |" >> "$GITHUB_STEP_SUMMARY"
+          echo "|-------|-------|" >> "$GITHUB_STEP_SUMMARY"
+          echo "| Repository Name | \`${REPO_NAME}\` |" >> "$GITHUB_STEP_SUMMARY"
+          echo "| Environment | \`${ENVIRONMENT}\` |" >> "$GITHUB_STEP_SUMMARY"
+          echo "| Execution ID | \`${EXECUTION_ID}\` |" >> "$GITHUB_STEP_SUMMARY"
