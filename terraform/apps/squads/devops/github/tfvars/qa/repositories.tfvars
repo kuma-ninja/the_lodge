@@ -1326,4 +1326,20 @@ repositories = {
       DIVISION = "yape3",
     }
   },
+
+  ms-blank-backstage-test1 = {
+    name                = "ms-blank-backstage-test1"
+    description         = "Blank Test Duplicated Name"
+    environments        = ["qa", "stg", "prd"]
+    actions             = true
+    build_flows_enabled = true
+    teams_roles = {
+      devops = "Write + View Dependabot Alerts"
+    }
+    pagerduty  = true
+    squad_name = "devops"
+    custom_actions_variables = {
+      DIVISION = "yape3",
+    }
+  },
 }
