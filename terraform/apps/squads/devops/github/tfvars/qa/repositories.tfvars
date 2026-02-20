@@ -1438,4 +1438,21 @@ repositories = {
       DIVISION = "yape3",
     }
   },
+
+  ms-backstage-test-rr3 = {
+    name                = "ms-backstage-test-rr3"
+    description         = "Blank Test Duplicated Name"
+    environments        = ["qa", "stg", "prd"]
+    actions             = true
+    build_flows_enabled = true
+    teams_roles = {
+      product_platform = "Write + View Dependabot Alerts"
+    }
+    pagerduty  = true
+    squad_name = "product_platform"
+    template   = ""
+    custom_actions_variables = {
+      DIVISION = "yape3",
+    }
+  },
 }
