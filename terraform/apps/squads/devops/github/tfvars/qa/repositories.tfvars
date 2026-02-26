@@ -1520,4 +1520,21 @@ repositories = {
       DIVISION = "yape3",
     }
   },
+
+  ms-backstage-test-rr1 = {
+    name                = "ms-backstage-test-rr1"
+    description         = "Enum Select Type "
+    environments        = ["qa", "stg", "prd"]
+    actions             = true
+    build_flows_enabled = true
+    teams_roles = {
+      product_platform = "Write + View Dependabot Alerts"
+    }
+    pagerduty  = true
+    squad_name = "product_platform"
+    template   = "app-python-template"
+    custom_actions_variables = {
+      DIVISION = "yape3",
+    }
+  },
 }
